@@ -1,0 +1,5 @@
+zero/
+.DS_Store
+*.swp
+*.sqlite3
+*.pyc
