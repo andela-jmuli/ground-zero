@@ -8,7 +8,15 @@ from models import Temperature
 
 def home(request):
     """ This method renders the home page """
-    return render(request, 'base/home.html')
+
+    temp_data = Temperature.objects.all()
+    if temp_data:
+        temp_value = temp_data.temp_value
+        created_time = temp_data.created_time
+
+        context = {'temp_value', 'created_time'}
+
+        return render(request, 'base/home.html', context)
 
 def get_temperature(request):
     """ This method gets temperature data and saves to database """
